@@ -85,3 +85,11 @@ git add .
 git commit -m "message"
 git pull origin oldversion
 git push origin oldversion
+
+# env setup
+virtualenv env
+.\env\Scripts\activate
+deactivate
+
+npm cache clean --force
+npm install --force
