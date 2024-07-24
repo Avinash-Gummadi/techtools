@@ -164,7 +164,17 @@ export default function Home() {
                 </div>
                 </Link>
               </div>
-
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+                <h2 style={{textAlign: 'center'}}>Remaining Links</h2>
+                <Link to="about">About</Link><br />
+                <Link to="contact">Contact</Link><br />
+                <Link to="elements">Elements</Link><br />
+                <Link to="portfolio">Portfolio</Link><br />
+                <Link to="single">Single</Link><br />
+                <Link to="testlink">testlink</Link><br />
+                <Link to="auth">auth</Link><br />
+                <Link to="bjkjjknkj">any unknown links</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -173,7 +183,12 @@ export default function Home() {
             <div className="row">
               <div className="col-lg-7 mx-auto text-center">
                 <h2 className="text-white mb-4">Make Your Business Easy</h2>
-                <p className="mb-0"><a href="https://untree.co/" rel="noopener" className="btn btn-primary">Business Tools!</a></p>
+                <div className='d-flex justify-content-center' style={{gap: '10px'}}>
+                <p className="mb-0"><Link to="piechart" rel="noopener" className="btn btn-primary">
+                    <span className="feather-pie-chart"></span> Pie Chart</Link></p>
+                <p className="mb-0"><Link to="barchart" rel="noopener" className="btn btn-primary">
+                    <span className="feather-bar-chart-2"></span> Bar Chart</Link></p>
+                </div>
               </div>
             </div>
           </div>
