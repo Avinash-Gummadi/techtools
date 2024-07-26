@@ -56,15 +56,7 @@ const TypingSkill = () => {
           <h5 className="font-weight-bold text-danger">{paraSize < 5 ? "Easy" : paraSize < 10 ? "Medium" : "Difficult"}</h5>
         </div>
         <div className="p-4 rounded-lg border border-dark">
-          <TypingThroughInput
-            // text={
-            //   "Uploaded and generated files are deleted 1 hour after upload. Read more"
-            // }
-            {...{ text: text, paraSize: paraSize }}
-          // text={
-          //   "What is an example of a paragraph? A good example of a paragraph contains a topic sentence, details and a conclusion. 'There are many different kinds of animals that live in China. Tigers and leopards are animals that live in China's forests in the north"
-          // }
-          />
+          <TypingThroughInput {...{ text: text, paraSize: paraSize }} />
           {count>0 && <button className="btn-danger btn-sm rounded border mr-3" onClick={() => {settext("The quick brown fox jumps over the lazy dog"); setcount(0); setparaSize(0)}}>Start Over</button>}
           <button className="btn-primary btn-sm rounded border" onClick={() => NextText()}>next</button>
         </div>

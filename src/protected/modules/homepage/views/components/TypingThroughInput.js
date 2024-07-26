@@ -1,12 +1,12 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useTyping from "react-typing-game-hook";
 
-const TypeThroughInput: FC<{ text: string, paraSize: number }> = ({ text, paraSize }) => {
+const TypingThroughInput = ({ text, paraSize }) => {
   const [duration, setDuration] = useState(0);
   const [rStarttime, setrStarttime] = useState('');
   const [rEndtime, setrEndtime] = useState('');
   const [isFocused, setIsFocused] = useState(false);
-  const letterElements = useRef<HTMLDivElement>(null);
+  const letterElements = useRef(null);
 
   const {
     states: {
@@ -23,38 +23,23 @@ const TypeThroughInput: FC<{ text: string, paraSize: number }> = ({ text, paraSi
     actions: { insertTyping, deleteTyping, resetTyping }
   } = useTyping(text, { skipCurrentWordOnSpace: false, pauseOnError: true });
 
-  // set cursor
-  // const pos = useMemo(() => {
-  //   if (currIndex !== -1 && letterElements.current) {
-  //     let spanref: any = letterElements.current.children[currIndex];
-  //     let left = spanref.offsetLeft + spanref.offsetWidth - 2;
-  //     let top = spanref.offsetTop - 2;
-  //     return { left, top };
-  //   } else {
-  //     return {
-  //       left: -2,
-  //       top: 2
-  //     };
-  //   }
-  // }, [currIndex]);
-
-  //set WPM
+  // Set WPM
   useEffect(() => {
     if (phase === 2 && endTime && startTime) {
       setDuration(Math.floor((endTime - startTime) / 1000));
-      var edate = new Date(endTime);
+      const edate = new Date(endTime);
       setrEndtime(edate.toTimeString());
     } else {
       setDuration(0);
     }
     if (startTime) {
-      var sdate = new Date(startTime);
+      const sdate = new Date(startTime);
       setrStarttime(sdate.toTimeString());
     }
   }, [phase, startTime, endTime]);
 
-  //handle key presses
-  const handleKeyDown = (e: any, letter: string, control: boolean) => {
+  // Handle key presses
+  const handleKeyDown = (e, letter, control) => {
     if (letter === "Escape") {
       resetTyping();
     } else if (letter === "Backspace") {
@@ -90,8 +75,8 @@ const TypeThroughInput: FC<{ text: string, paraSize: number }> = ({ text, paraSi
               state === 0
                 ? "text-dark"
                 : state === 1
-                  ? "text-success"
-                  : "text-danger";
+                ? "text-success"
+                : "text-danger";
             return (
               <span key={letter + index} className={`${phase !== 2 && isFocused && currIndex + 1 === index ? "curr-letter" : ""} ${color}`} style={paraSize > 5 ? { fontSize: "1.5rem" } : { fontSize: "2.5rem" }}>
                 {letter}
@@ -124,4 +109,4 @@ const TypeThroughInput: FC<{ text: string, paraSize: number }> = ({ text, paraSi
   );
 };
 
-export default TypeThroughInput;
+export default TypingThroughInput;
