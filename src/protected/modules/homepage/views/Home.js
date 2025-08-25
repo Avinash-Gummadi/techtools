@@ -28,11 +28,11 @@ export default function Home() {
             <div className="row align-items-center justify-content-between">
               <div className="col-lg-7 intro">
                 <h1 className="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">We turn ideas into extraordinary digital products</h1>
-                <p className="text-white mb-4" data-aos="fade-up" data-aos-delay="100">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
-                <form action="https://google.com" className="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="200">
-                  <input type="text" className="form-control" placeholder="Enter email address"></input>
+                <p className="text-white mb-4" data-aos="fade-up" data-aos-delay="100">Powerful online tools for everyday tasks—generate QR codes, merge PDFs, convert images, and more—simple, fast, and reliable to streamline your digital workflow.</p>
+                {/* <form action="https://google.com" className="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="200">
+                  <input type="email" className="form-control" placeholder="Enter email address"></input>
                   <input type="submit" className="btn btn-primary" value="Sign up"></input>
-                </form>
+                </form> */}
 
               </div>
 
@@ -44,9 +44,9 @@ export default function Home() {
 
           <div className="slant" style={{ backgroundImage: `url('images/slant.svg')` }}></div>
         </div>
-        <div className="py-3">
-          <div className="container">
 
+        {/* <div className="py-3">
+          <div className="container">
             <div className="owl-logos owl-carousel">
               <div className="item">
                 <img src="images/logo-puma.png" alt="" className="img-fluid"></img>
@@ -66,14 +66,10 @@ export default function Home() {
               <div className="item">
                 <img src="images/logo-google.png" alt="" className="img-fluid"></img>
               </div>
-
-
             </div>
-
-
           </div>
+        </div> */}
 
-        </div>
         <div className="site-section">
           <div className="container">
             <form action="https://www.google.com/search" className="searchform" method="get" name="searchform" target="_blank" style={{ marginBottom: "10px" }}>
@@ -164,7 +160,17 @@ export default function Home() {
                 </div>
                 </Link>
               </div>
-
+              {/* <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+                <h2 style={{textAlign: 'center'}}>Remaining Links</h2>
+                <Link to="about">About</Link><br />
+                <Link to="contact">Contact</Link><br />
+                <Link to="elements">Elements</Link><br />
+                <Link to="portfolio">Portfolio</Link><br />
+                <Link to="single">Single</Link><br />
+                <Link to="testlink">testlink</Link><br />
+                <Link to="auth">auth</Link><br />
+                <Link to="bjkjjknkj">any unknown links</Link>
+              </div> */}
             </div>
           </div>
         </div>
@@ -173,12 +179,18 @@ export default function Home() {
             <div className="row">
               <div className="col-lg-7 mx-auto text-center">
                 <h2 className="text-white mb-4">Make Your Business Easy</h2>
-                <p className="mb-0"><a href="https://untree.co/" rel="noopener" className="btn btn-primary">Business Tools!</a></p>
+                <div className='d-flex justify-content-center' style={{gap: '10px'}}>
+                <p className="mb-0"><Link to="piechart" rel="noopener" className="btn btn-primary">
+                    <span className="feather-pie-chart"></span> Pie Chart</Link></p>
+                <p className="mb-0"><Link to="barchart" rel="noopener" className="btn btn-primary">
+                    <span className="feather-bar-chart-2"></span> Bar Chart</Link></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="features-lg ">
+
+        {/* <div className="features-lg ">
           <div className="container">
             <div className="row feature align-items-center justify-content-between">
               <div className="col-lg-7 section-stack order-lg-2 mb-4 mb-lg-0 position-relative" data-aos="fade-up" data-aos-delay="0">
@@ -203,8 +215,9 @@ export default function Home() {
 
             </div>
           </div>
-        </div>
-        <div className="features-lg">
+        </div> */}
+
+        {/* <div className="features-lg">
           <div className="container">
 
             <div className="row feature align-items-center justify-content-between">
@@ -222,8 +235,9 @@ export default function Home() {
             </div>
 
           </div>
-        </div>
-        <div className="pricing-section">
+        </div> */}
+
+        {/* <div className="pricing-section">
           <div className="container">
             <div className="section-title text-center mb-5" data-aos="fade-up" data-aos-delay="0">
               <h2 className="heading font-weight-bold mb-5">Plans</h2>
@@ -232,7 +246,6 @@ export default function Home() {
 
                 <div className="d-inline-flex align-items-center">
                   <div className="period">Monthly</div>
-                  {/* eslint-disable-next-line */}
                   <a href="https://google.com" className="period-toggle js-period-toggle"></a>
                   <div className="period"><span className="mr-2">Yearly</span><span className="save-percent">Save 25%</span></div>
                 </div>
@@ -347,8 +360,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="testimonial-section">
+        </div> */}
+
+        {/* <div className="testimonial-section">
           <div className="container">
             <div className="row align-items-center justify-content-between">
               <div className="col-lg-4 mb-5 section-title" data-aos="fade-up" data-aos-delay="0">
@@ -415,8 +429,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="site-section bg-light" id="blog-section">
+        </div> */}
+
+        {/* <div className="site-section bg-light" id="blog-section">
           <div className="container">
             <div className="row">
               <div className="col-7 mb-4 position-relative text-center mx-auto">
@@ -470,8 +485,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="site-section overlay site-cover-2" style={{ backgroundImage: `url('images/img_v_4-min.jpg')` }}>
+        </div> */}
+
+        {/* <div className="site-section overlay site-cover-2" style={{ backgroundImage: `url('images/img_v_4-min.jpg')` }}>
           <div className="container">
             <div className="row">
               <div className="col-lg-7 mx-auto text-center">
@@ -480,7 +496,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+
         <Footer />
       </div>
     </DocumentMeta>

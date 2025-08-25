@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
+import './header.css'
 export default function Header() {
     return (
         <div>
@@ -22,7 +22,7 @@ export default function Header() {
                     <div className="row align-items-center">
                         <div className="col-12 col-sm-12 col-lg-12 site-navigation text-center">
                             <ul className="js-clone-nav d-none d-lg-inline-block text-left site-menu">
-                                <li className="active"><Link to="/">Home</Link></li>
+                                {/* <li className="active"><Link to="/">Home</Link></li>
                                 <li className="has-children">
                                     <Link to="#">Services</Link>
                                     <ul className="dropdown">
@@ -44,16 +44,16 @@ export default function Header() {
                                     </ul>
                                 </li>
                                 <li><Link to="/elements">Elements</Link></li>
-                                <li><Link to="/contact">Contact us</Link></li>
+                                <li><Link to="/contact">Contact us</Link></li> */}
                             </ul>
 
                             <ul className="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right menu-absolute">
-                                <li className="cta-button"><a href="https://untree.co/" target="_blank" rel="noreferrer">Free Templates</a></li>
+                                <li className="cta-button tmp-hide"><a href="/" target="_blank" rel="noreferrer">Login</a></li>
                             </ul>
 
-                            <Link to="#" className="burger light ml-auto site-menu-toggle js-menu-toggle d-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                            {/* <Link to="#" className="burger light ml-auto site-menu-toggle js-menu-toggle d-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
                                 <span></span>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </nav>

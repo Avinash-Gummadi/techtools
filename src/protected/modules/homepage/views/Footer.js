@@ -11,9 +11,10 @@ export default function Footer() {
                         <div className="col-lg-4">
                             <div className="widget">
                                 <h3>About</h3>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
+                                <p>We create simple yet powerful digital solutions that help people work smarter, save time, and manage everyday tasks with ease and efficiency.</p>
                             </div>
-                            <div className="widget">
+
+                            {/* <div className="widget">
                                 <h3>Connect with us</h3>
                                 <ul className="social list-unstyled">
                                     <li><a href="https://facebook.com" target="_blank" rel="noreferrer"><span className="icon-facebook"></span></a></li>
@@ -22,9 +23,10 @@ export default function Footer() {
                                     <li><a href="https://dribble.com" target="_blank" rel="noreferrer"><span className="icon-dribbble"></span></a></li>
                                     <li><a href="https://linkedin.com" target="_blank" rel="noreferrer"><span className="icon-linkedin"></span></a></li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
-                        <div className="col-lg-6">
+
+                        {/* <div className="col-lg-6">
                             <div className="row">
                                 <div className="col-12">
                                     <div className="widget">
@@ -65,12 +67,13 @@ export default function Footer() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="row justify-content-center text-center copyright">
                         <div className="col-md-8">
-                            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co" target="_blank" rel="nofollow noopener noreferrer">Untree.co</a> &bullet; <a href="https://untree.co/license" target="_blank" rel="nofollow noopener noreferrer">License</a>
+                            <p>Copyright &copy;{(new Date().getFullYear())}. All Rights Reserved. 
+                                {/* &mdash; Designed with love by <a href="https://untree.co" target="_blank" rel="nofollow noopener noreferrer">Untree.co</a> &bullet; <a href="https://untree.co/license" target="_blank" rel="nofollow noopener noreferrer">License</a> */}
                             </p>
                         </div>
                     </div>
