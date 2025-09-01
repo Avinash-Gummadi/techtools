@@ -17,7 +17,7 @@ export default function Header() {
             <div className="container">
                 <nav className="site-nav">
                     <div className="logo">
-                        <Link to="/" className="text-white">WL Store<span className="text-black">.</span></Link>
+                        <Link to="/" className="text-white">Techtools Store<span className="text-black">.</span></Link>
                     </div>
                     <div className="row align-items-center">
                         <div className="col-12 col-sm-12 col-lg-12 site-navigation text-center">

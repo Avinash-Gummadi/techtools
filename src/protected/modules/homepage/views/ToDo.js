@@ -92,7 +92,7 @@ const ToDo = () => {
     const meta = {
         title: 'ToDo List in WebLaunch Store',
         description: 'List your Bucket of Works. You can edit, complete, delete the list',
-        canonical: 'http://localhost:3000/todo',
+        canonical: 'https://techtools.gummadii.com/todo',
         meta: {
             name: {
                 keywords: 'ToDo, Bucket, Works, Tasks'

@@ -31,7 +31,7 @@ const TypingSkill = () => {
   const meta = {
     title: 'Learn Typing in WebLaunch Store',
     description: 'You can practice typing unlimited times level wise',
-    canonical: 'http://localhost:3000/learn-typing',
+    canonical: 'https://techtools.gummadii.com/learn-typing',
     meta: {
       name: {
         keywords: 'typing, speed typing, fast typing'

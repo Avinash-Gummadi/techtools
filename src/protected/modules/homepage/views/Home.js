@@ -9,7 +9,7 @@ export default function Home() {
   const meta = {
     title: 'WebLaunch Store',
     description: 'Our WebLaunch Store have all the market rich tools',
-    canonical: 'http://localhost:3000/',
+    canonical: 'https://techtools.gummadii.com/',
     meta: {
       name: {
         keywords: 'Free Tools, Business Tools, allinone'

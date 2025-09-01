@@ -174,7 +174,7 @@ export default function BarChart() {
   const meta = {
     title: 'Bar Chart WebLaunch Store',
     description: 'List your Bucket of Works. You can edit, complete, delete the list',
-    canonical: 'http://localhost:3000/barchart',
+    canonical: 'https://techtools.gummadii.com/barchart',
     meta: {
       name: {
         keywords: 'ToDo, Bucket, Works, Tasks'
