@@ -172,7 +172,7 @@ export default function BarChart() {
       removeAfterPrint: true
   });
   const meta = {
-    title: 'Bar Chart WebLaunch Store',
+    title: 'Bar Chart Techtools Store',
     description: 'List your Bucket of Works. You can edit, complete, delete the list',
     canonical: 'https://techtools.gummadii.com/barchart',
     meta: {

@@ -78,7 +78,7 @@ ncu -g - update global package.json
 lastly npm install
 
 # To Change URL
-git remote set-url origin https://github.com/WebLaunchDevelopers/wlstore.git
+git remote set-url origin https://github.com/TechtoolsDevelopers/wlstore.git
 
 # Version Steps
 git add .

@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 const TypingTips = () => {
     const meta = {
-        title: 'Tips for Typing | WebLaunch Store',
+        title: 'Tips for Typing | Techtools Store',
         description: 'List your Bucket of Works. You can edit, complete, delete the list',
         canonical: 'https://techtools.gummadii.com/todo',
         meta: {

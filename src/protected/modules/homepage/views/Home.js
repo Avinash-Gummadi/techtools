@@ -7,8 +7,8 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 export default function Home() {
   const meta = {
-    title: 'WebLaunch Store',
-    description: 'Our WebLaunch Store have all the market rich tools',
+    title: 'Techtools Store',
+    description: 'Our Techtools Store have all the market rich tools',
     canonical: 'https://techtools.gummadii.com/',
     meta: {
       name: {
@@ -190,32 +190,31 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <div className="features-lg ">
+        <div className="features-lg ">
           <div className="container">
             <div className="row feature align-items-center justify-content-between">
               <div className="col-lg-7 section-stack order-lg-2 mb-4 mb-lg-0 position-relative" data-aos="fade-up" data-aos-delay="0">
 
                 <div className="image-stack">
                   <div className="image-stack__item image-stack__item--top">
-                    <img src="images/img_h_2-min.jpg" alt=""></img>
+                    <img src="images/techtoolslogo.png" alt=""></img>
                   </div>
                   <div className="image-stack__item image-stack__item--bottom">
-                    <img src="images/img_h_3-min.jpg" alt=""></img>
+                    <img src="images/img_h_4-min.jpg" alt=""></img>
                   </div>
                 </div>
 
               </div>
               <div className="col-lg-4 section-title" data-aos="fade-up" data-aos-delay="100">
 
-                <h2 className="font-weight-bold mb-4 heading">Far far away, behind the word mountains</h2>
-                <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
-                <p><a href="https://google.com" className="btn btn-primary">Get Started</a></p>
-
+                <h2 className="font-weight-bold mb-4 heading">Create, Merge, Convert, Compress, Generate, Type, List</h2>
+                <p className="mb-4">Create Charts, Merge PDFs, Convert & Compress Images, Generate QR's, Improve Type Skills, List To-Do's.</p>
+                {/* <p><a href="https://google.com" className="btn btn-primary">Get Started</a></p> */}
               </div>
 
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* <div className="features-lg">
           <div className="container">

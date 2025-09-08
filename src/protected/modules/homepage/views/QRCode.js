@@ -29,7 +29,7 @@ export default class QRCode extends Component {
     }
     render() {
         const meta = {
-            title: 'QR Generator WebLaunch Store',
+            title: 'QR Generator Techtools Store',
             description: 'Generate or Download any URL or Text into Scanable QR Code',
             canonical: 'https://techtools.gummadii.com/qrcode',
             meta: {

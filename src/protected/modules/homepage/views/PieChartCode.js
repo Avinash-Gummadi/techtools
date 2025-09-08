@@ -77,7 +77,7 @@ export default function PieChartCode() {
         removeAfterPrint: true
     });
     const meta = {
-        title: 'Pie Chart WebLaunch Store',
+        title: 'Pie Chart Techtools Store',
         description: 'List your Bucket of Works. You can edit, complete, delete the list',
         canonical: 'https://techtools.gummadii.com/piechart',
         meta: {

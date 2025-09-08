@@ -40,7 +40,7 @@ export default class ImageConverter extends Component {
     }
     render() {
         const meta = {
-            title: 'WebLaunch Store Image Converter',
+            title: 'Techtools Store Image Converter',
             description: 'Upload any image to Convert into jpg or png or webp',
             canonical: 'https://techtools.gummadii.com/imgConverter',
             meta: {

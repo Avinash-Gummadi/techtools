@@ -39,7 +39,7 @@ export default class UploadPdf extends Component {
 
     render() {
         const meta = {
-            title: 'WebLaunch Store Image Compressor',
+            title: 'Techtools Store Image Compressor',
             description: 'Upload any Image to Compress',
             canonical: 'https://techtools.gummadii.com/imageCompress',
             meta: {
