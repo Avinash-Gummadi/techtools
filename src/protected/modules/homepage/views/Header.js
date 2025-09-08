@@ -16,8 +16,11 @@ export default function Header() {
             {/* Header */}
             <div className="container">
                 <nav className="site-nav">
+                    <Link to="/" className="text-white cmpyname">TECHTOOLS<span className="text-black">.</span></Link>
                     <div className="logo">
-                        <Link to="/" className="text-white">WL Store<span className="text-black">.</span></Link>
+                        <Link to="/" className="text-white">
+                            <img width={95} height={95} src="images/logo.png" alt="Techtools Store" />
+                        </Link>
                     </div>
                     <div className="row align-items-center">
                         <div className="col-12 col-sm-12 col-lg-12 site-navigation text-center">

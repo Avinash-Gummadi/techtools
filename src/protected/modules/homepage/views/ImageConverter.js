@@ -40,9 +40,9 @@ export default class ImageConverter extends Component {
     }
     render() {
         const meta = {
-            title: 'WebLaunch Store Image Converter',
+            title: 'Techtools Store Image Converter',
             description: 'Upload any image to Convert into jpg or png or webp',
-            canonical: 'http://localhost:3000/imgConverter',
+            canonical: 'https://techtools.gummadii.com/imgConverter',
             meta: {
                 name: {
                     keywords: 'Image Converter, png, jpg, webp'
@@ -60,7 +60,11 @@ export default class ImageConverter extends Component {
                             </div>
                             <div>
                                 <h3>Image Converter</h3>
-                                <p>Upload any image to Convert into jpg or png or webp with high quality</p>
+                                {this.state.preview ?
+                                    <p>Preview your image before downloading</p>
+                                    :
+                                    <p>Upload any image to Convert into jpg or png or webp with high quality</p>
+                                }
                             </div>
                         </div>
                         {this.state.imgUrl ?
@@ -80,7 +84,7 @@ export default class ImageConverter extends Component {
                                 </div>
 
                                 <div style={{ margin: "15px" }} className="text-center">
-                                    <h1 style={{ textCenter: "center", marginBottom: "30px" }}>File is Ready</h1>
+                                    <h4 style={{ textAlign: "center" }}>File Ready</h4>
                                     <a href={this.state.imgUrl} download={`WLStore_${this.state.imgArray[0][1].size}`} className="btn btn-primary">Download Image</a>
                                 </div>
                                 {this.state.preview && <a href="/imgConverter" className='text-center d-block text-decoration-underline' style={{ fontWeight: "700", textDecoration: "underline", fontSize: "17px" }}>Start Over</a>}
@@ -107,6 +111,7 @@ export default class ImageConverter extends Component {
                                     <div className="form-group text-center">
                                         {!this.state.preview &&
                                             <>
+                                                <span style={{ fontWeight: "bold", fontSize: "25px" }}>Convert to: </span>
                                                 <select className="form-select select_class" aria-label="Formats" onChange={this.onSelectChange}>
                                                     <option defaultValue="png">PNG</option>
                                                     <option value="jpeg">JPG</option>

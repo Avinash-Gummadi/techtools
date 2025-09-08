@@ -48,9 +48,9 @@ export default class UploadPdf extends Component {
 
     render() {
         const meta = {
-            title: 'WebLaunch Store Merge PDF Files',
+            title: 'Techtools Store Merge PDF Files',
             description: 'Upload 2 or more PDF files to Merge into a single PDF file',
-            canonical: 'http://localhost:3000/pdfMerge',
+            canonical: 'https://techtools.gummadii.com/pdfMerge',
             meta: {
                 name: {
                     keywords: 'Merge PDF Files, pdf merge'
