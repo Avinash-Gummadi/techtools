@@ -29,9 +29,9 @@ export default class QRCode extends Component {
     }
     render() {
         const meta = {
-            title: 'QR Generator WebLaunch Store',
+            title: 'QR Generator Techtools Store',
             description: 'Generate or Download any URL or Text into Scanable QR Code',
-            canonical: 'http://localhost:3000/qrcode',
+            canonical: 'https://techtools.gummadii.com/qrcode',
             meta: {
                 name: {
                     keywords: 'QR Code, Generate QR, Free Tools, Business Tools, allinone'

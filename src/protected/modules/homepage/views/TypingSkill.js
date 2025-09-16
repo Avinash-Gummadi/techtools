@@ -29,9 +29,9 @@ const TypingSkill = () => {
     setparaSize(level);
   }
   const meta = {
-    title: 'Learn Typing in WebLaunch Store',
+    title: 'Learn Typing in Techtools Store',
     description: 'You can practice typing unlimited times level wise',
-    canonical: 'http://localhost:3000/learn-typing',
+    canonical: 'https://techtools.gummadii.com/learn-typing',
     meta: {
       name: {
         keywords: 'typing, speed typing, fast typing'

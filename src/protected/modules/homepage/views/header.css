@@ -1,3 +1,11 @@
-.tmp-hide{
+.tmp-hide {
     display: none !important;
+}
+
+.cmpyname {
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    float: right;
 }

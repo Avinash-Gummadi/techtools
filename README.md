@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [https://techtools.gummadii.com](https://techtools.gummadii.com) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -78,7 +78,7 @@ ncu -g - update global package.json
 lastly npm install
 
 # To Change URL
-git remote set-url origin https://github.com/WebLaunchDevelopers/wlstore.git
+git remote set-url origin https://github.com/TechtoolsDevelopers/wlstore.git
 
 # Version Steps
 git add .
