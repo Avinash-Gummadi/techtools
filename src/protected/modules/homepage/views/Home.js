@@ -160,6 +160,21 @@ export default function Home() {
                 </div>
                 </Link>
               </div>
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="600">
+                <Link to="regularchecks">
+                <div className="unit-4 d-flex">
+                  <div className="unit-4-icon mr-4">
+                    <span className="feather-check-square"></span>
+                  </div>
+                  <div>
+                    <h3>Daily Tasks</h3>
+                    <p>Your daily checklist. It will reset everyday.</p>
+                  </div>
+                </div>
+                </Link>
+              </div>
+
+
               {/* <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
                 <h2 style={{textAlign: 'center'}}>Remaining Links</h2>
                 <Link to="about">About</Link><br />
