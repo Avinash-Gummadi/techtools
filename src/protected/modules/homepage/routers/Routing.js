@@ -23,6 +23,8 @@ import PieChartCode from '../views/PieChartCode';
 import TypingTips from '../views/TypingTips';
 import BarChart from '../views/BarChart';
 import RegularChecks from '../views/RegularChecks';
+import LockPdf from '../views/LockPdf';
+import UnlockPdf from '../views/UnlockPdf';
 
 const ErrorPage = () => <div><h1>Page Not Found, contact administrator. Later design page for this</h1></div>
 
@@ -47,6 +49,8 @@ const Routing = () => {
                 <Route exact={true} path="barchart" element={<BarChart />}></Route>
                 <Route exact={true} path="imageCompress" element={<ImageCompress />}></Route>
                 <Route exact={true} path="regularchecks" element={<RegularChecks />}></Route>
+                <Route exact={true} path="lock-pdf" element={<LockPdf />}></Route>
+                <Route exact={true} path="unlock-pdf" element={<UnlockPdf />}></Route>
                 <Route exact={true} path="auth" element={<Authuser />}></Route>
                 <Route exact={true} path='*' element={<ErrorPage />}></Route>
             </Routes>

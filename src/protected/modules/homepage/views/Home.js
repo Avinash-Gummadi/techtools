@@ -149,43 +149,56 @@ export default function Home() {
               </div>
               <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
                 <Link to="learn-typing">
-                <div className="unit-4 d-flex">
-                  <div className="unit-4-icon mr-4">
-                    <span className="feather-bootstrap bi bi-keyboard"></span>
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-bootstrap bi bi-keyboard"></span>
+                    </div>
+                    <div>
+                      <h3>Typing Skills</h3>
+                      <p>You can practice typing with unlimited levels</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3>Typing Skills</h3>
-                    <p>You can practice typing with unlimited levels</p>
-                  </div>
-                </div>
                 </Link>
               </div>
               <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="600">
                 <Link to="regularchecks">
-                <div className="unit-4 d-flex">
-                  <div className="unit-4-icon mr-4">
-                    <span className="feather-check-square"></span>
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-check-square"></span>
+                    </div>
+                    <div>
+                      <h3>Daily Tasks</h3>
+                      <p>Your daily checklist. It will reset everyday.</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3>Daily Tasks</h3>
-                    <p>Your daily checklist. It will reset everyday.</p>
-                  </div>
-                </div>
                 </Link>
               </div>
-
-
-              {/* <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
-                <h2 style={{textAlign: 'center'}}>Remaining Links</h2>
-                <Link to="about">About</Link><br />
-                <Link to="contact">Contact</Link><br />
-                <Link to="elements">Elements</Link><br />
-                <Link to="portfolio">Portfolio</Link><br />
-                <Link to="single">Single</Link><br />
-                <Link to="testlink">testlink</Link><br />
-                <Link to="auth">auth</Link><br />
-                <Link to="bjkjjknkj">any unknown links</Link>
-              </div> */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="700">
+                <Link to="lock-pdf">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-lock"></span>
+                    </div>
+                    <div>
+                      <h3>Lock PDF</h3>
+                      <p>Protect your PDF files with a password.</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="800">
+                <Link to="unlock-pdf">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-unlock"></span>
+                    </div>
+                    <div>
+                      <h3>Unlock PDF</h3>
+                      <p>Remove password protection from your PDF files.</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -194,17 +207,16 @@ export default function Home() {
             <div className="row">
               <div className="col-lg-7 mx-auto text-center">
                 <h2 className="text-white mb-4">Make Your Business Easy</h2>
-                <div className='d-flex justify-content-center' style={{gap: '10px'}}>
-                <p className="mb-0"><Link to="piechart" rel="noopener" className="btn btn-primary">
+                <div className='d-flex justify-content-center' style={{ gap: '10px' }}>
+                  <p className="mb-0"><Link to="piechart" rel="noopener" className="btn btn-primary">
                     <span className="feather-pie-chart"></span> Pie Chart</Link></p>
-                <p className="mb-0"><Link to="barchart" rel="noopener" className="btn btn-primary">
+                  <p className="mb-0"><Link to="barchart" rel="noopener" className="btn btn-primary">
                     <span className="feather-bar-chart-2"></span> Bar Chart</Link></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div className="features-lg ">
           <div className="container">
             <div className="row feature align-items-center justify-content-between">
@@ -230,7 +242,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         {/* <div className="features-lg">
           <div className="container">
 
