@@ -199,6 +199,45 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="900">
+                <Link to="unit-converter">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-refresh-cw"></span>
+                    </div>
+                    <div>
+                      <h3>Unit Converter</h3>
+                      <p>Instantly convert Length, Weight, Temperature and more.</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="1000">
+                <Link to="expense-tracker">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-dollar-sign"></span>
+                    </div>
+                    <div>
+                      <h3>Expense Tracker</h3>
+                      <p>Track your daily spending and stay on budget.</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="1100">
+                <Link to="resize-image">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-maximize"></span>
+                    </div>
+                    <div>
+                      <h3>Resize Image</h3>
+                      <p>Upload, resize, crop, and convert your images instantly.</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DocumentMeta from 'react-document-meta';
 import Header from './Header';
 import Footer from './Footer';
+import './ViewStyles.css';
 
 const ToDo = () => {
 
@@ -122,14 +123,17 @@ const ToDo = () => {
                         </div>
                     </form>
                 </div>
-                {
-                    tasks.length !== 0 ?
-                        <div className='m-3'>
-                            <button className="btn btn-primary" onClick={handleDeleteAll} style={{ padding: "10px 20px", fontSize: "16px" }}>Delete All</button>
-                            <p className='mt-1 text-center'>No of works completed: {tasksChecked}</p>
-                        </div>
-                        : <p className='text-center'>No items in ToDo List</p>
+                {tasks.length > 0 &&
+                    <div className="summary-bar">
+                        <p className="task-count">Completed: {tasksChecked} / {tasks.length}</p>
+                        <button className='premium-btn premium-btn-danger' onClick={handleDeleteAll}>Clear All Tasks</button>
+                    </div>
                 }
+
+                {tasks.length === 0 && <div className="text-center text-muted mt-5 mb-5">
+                    <span className="feather-inbox mb-3" style={{ fontSize: '3rem', opacity: 0.5 }}></span>
+                    <p>Your list is empty. Start by adding a task!</p>
+                </div>}
                 <ul className=" list-group list-group-flush">
                     {
                         tasks.map((eachTask, idx) => (
