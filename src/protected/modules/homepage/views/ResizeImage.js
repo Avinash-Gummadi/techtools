@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import SEO from '../../../../components/SEO';
 import './ViewStyles.css';
 
 const ResizeImage = () => {
@@ -116,6 +117,12 @@ const ResizeImage = () => {
 
     return (
         <div>
+            <SEO
+                title="Online Image Resizer | Techtools Store"
+                description="Upload, resize, crop, and convert your images instantly online for free."
+                canonical="https://techtools.gummadii.com/resize-image"
+                keywords="resize image, crop image, image converter, online photo editor"
+            />
             <Header />
             <div className="container">
                 <div className="view-container">

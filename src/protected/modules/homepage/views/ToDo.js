@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import DocumentMeta from 'react-document-meta';
 import Header from './Header';
 import Footer from './Footer';
 import './ViewStyles.css';
+import SEO from '../../../../components/SEO';
 
 const ToDo = () => {
 
@@ -90,18 +90,14 @@ const ToDo = () => {
             setTasks(myLocalTasks);
         }
     }, [])
-    const meta = {
-        title: 'ToDo List in Techtools Store',
-        description: 'List your Bucket of Works. You can edit, complete, delete the list',
-        canonical: 'https://techtools.gummadii.com/todo',
-        meta: {
-            name: {
-                keywords: 'ToDo, Bucket, Works, Tasks'
-            }
-        }
-    };
     return (
-        <DocumentMeta {...meta}>
+        <>
+            <SEO
+                title="ToDo List in Techtools Store"
+                description="List your Bucket of Works. You can edit, complete, delete the list"
+                canonical="https://techtools.gummadii.com/todo"
+                keywords="ToDo, Bucket, Works, Tasks"
+            />
             <Header />
             <div className="container">
                 <div style={{ marginTop: "100px" }}>
@@ -168,7 +164,7 @@ const ToDo = () => {
                 </ul>
             </div>
             <Footer />
-        </DocumentMeta>
+        </>
     )
 }
 

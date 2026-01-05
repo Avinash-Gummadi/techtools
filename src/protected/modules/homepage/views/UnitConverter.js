@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import SEO from '../../../../components/SEO';
 import './ViewStyles.css';
 
 const UnitConverter = () => {
@@ -85,6 +86,12 @@ const UnitConverter = () => {
 
     return (
         <div>
+            <SEO
+                title="Unit Converter | Techtools Store"
+                description="Instantly convert between common units of measurement like Length, Weight, and Temperature."
+                canonical="https://techtools.gummadii.com/unit-converter"
+                keywords="unit converter, online converter, length converter, weight converter, temperature converter"
+            />
             <Header />
             <div className="container">
                 <div className="view-container">

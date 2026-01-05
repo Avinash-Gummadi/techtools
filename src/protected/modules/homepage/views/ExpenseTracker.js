@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import SEO from '../../../../components/SEO';
 import './ViewStyles.css';
 
 const ExpenseTracker = () => {
@@ -49,6 +50,12 @@ const ExpenseTracker = () => {
 
     return (
         <div>
+            <SEO
+                title="Smart Expense Tracker | Techtools Store"
+                description="Track your daily spending and stay on budget with our free online expense tracker."
+                canonical="https://techtools.gummadii.com/expense-tracker"
+                keywords="expense tracker, budget tracker, personal finance tool"
+            />
             <Header />
             <div className="container">
                 <div className="view-container">

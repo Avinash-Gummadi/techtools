@@ -3,7 +3,7 @@ import { PDFDocument } from 'pdf-lib/dist/pdf-lib.esm.js';
 import { encryptPDF } from './pdf-encrypt';
 import Header from './Header';
 import Footer from './Footer';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 
 const LockPdf = () => {
     const [pdfFile, setPdfFile] = useState(null);
@@ -52,19 +52,14 @@ const LockPdf = () => {
         }
     };
 
-    const meta = {
-        title: 'Techtools Store Lock PDF File',
-        description: 'Protect your PDF file with a password',
-        canonical: 'https://techtools.gummadii.com/lockPdf',
-        meta: {
-            name: {
-                keywords: 'Lock PDF, password protect pdf, secure pdf'
-            }
-        }
-    };
-
     return (
-        <DocumentMeta {...meta}>
+        <>
+            <SEO
+                title="Techtools Store Lock PDF File"
+                description="Protect your PDF file with a password"
+                canonical="https://techtools.gummadii.com/lock-pdf"
+                keywords="Lock PDF, password protect pdf, secure pdf"
+            />
             <Header />
             <div className="site-section">
                 <div className="container" style={{ marginTop: "100px" }}>
@@ -93,7 +88,7 @@ const LockPdf = () => {
                 </div>
             </div>
             <Footer />
-        </DocumentMeta>
+        </>
     );
 };
 

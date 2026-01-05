@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ConvertImage from "react-convert-image";
 import Header from './Header';
 import Footer from './Footer';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 
 export default class ImageConverter extends Component {
     constructor(props) {
@@ -39,18 +39,14 @@ export default class ImageConverter extends Component {
         AddToArray(e.target.files);
     }
     render() {
-        const meta = {
-            title: 'Techtools Store Image Converter',
-            description: 'Upload any image to Convert into jpg or png or webp',
-            canonical: 'https://techtools.gummadii.com/imgConverter',
-            meta: {
-                name: {
-                    keywords: 'Image Converter, png, jpg, webp'
-                }
-            }
-        };
         return (
-            <DocumentMeta {...meta}>
+            <>
+                <SEO
+                    title="Techtools Store Image Converter"
+                    description="Upload any image to Convert into jpg or png or webp"
+                    canonical="https://techtools.gummadii.com/imgConverter"
+                    keywords="Image Converter, png, jpg, webp"
+                />
                 <Header />
                 <div className="container">
                     <div style={{ marginTop: "100px" }}>
@@ -129,7 +125,7 @@ export default class ImageConverter extends Component {
                     </div>
                 </div>
                 <Footer />
-            </DocumentMeta>
+            </>
         );
     }
 }

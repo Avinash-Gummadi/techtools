@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 
 // Helper function to get the current date as a string (e.g., "2025-09-16")
 const getTodayDateString = () => {
@@ -115,19 +115,14 @@ const RegularChecks = () => {
         setEditingTask(null); // Exit editing mode
     };
 
-    const meta = {
-        title: 'Techtools Daily Regular Checks',
-        description: 'Keep track of your daily repetitive tasks.',
-        canonical: 'https://techtools.gummadii.com/regularchecks',
-        meta: {
-            name: {
-                keywords: 'daily checklist, tasks, regular checks, productivity'
-            }
-        }
-    };
-
     return (
-        <DocumentMeta {...meta}>
+        <>
+            <SEO
+                title="Techtools Daily Regular Checks"
+                description="Keep track of your daily repetitive tasks."
+                canonical="https://techtools.gummadii.com/regularchecks"
+                keywords="daily checklist, tasks, regular checks, productivity"
+            />
             <Header />
             <div className="container" style={{ marginTop: "100px", marginBottom: "100px" }}>
                 <div className="unit-5 text-center">
@@ -236,7 +231,7 @@ const RegularChecks = () => {
                 </div>
             </div>
             <Footer />
-        </DocumentMeta>
+        </>
     );
 };
 

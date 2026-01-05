@@ -2,25 +2,22 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { Link } from "react-router-dom";
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 import "bootstrap-icons/font/bootstrap-icons.css"
 
 export default function Home() {
-  const meta = {
-    title: 'Techtools Store',
-    description: 'Our Techtools Store have all the market rich tools',
-    canonical: 'https://techtools.gummadii.com/',
-    meta: {
-      name: {
-        keywords: 'Free Tools, Business Tools, allinone'
-      }
-    }
-  };
+
   const env_val = process.env.NODE_ENV;
   console.log("env_val: ", env_val);
   console.log("window url: ", window.location);
   return (
-    <DocumentMeta {...meta}>
+    <>
+      <SEO
+        title="Techtools Store"
+        description="Our Techtools Store have all the market rich tools"
+        canonical="https://techtools.gummadii.com/"
+        keywords="Free Tools, Business Tools, allinone"
+      />
       <div>
         <Header />
         <div className="hero-slant overlay" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url('images/hero-min.jpg')` }}>
@@ -564,6 +561,6 @@ export default function Home() {
 
         <Footer />
       </div>
-    </DocumentMeta>
+    </>
   )
 }

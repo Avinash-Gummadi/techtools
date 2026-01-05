@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header';
 import Footer from './Footer';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 import QRCodeGenerator from 'qrcode.react';
 
 export default class QRCode extends Component {
@@ -28,18 +28,14 @@ export default class QRCode extends Component {
         });
     }
     render() {
-        const meta = {
-            title: 'QR Generator Techtools Store',
-            description: 'Generate or Download any URL or Text into Scanable QR Code',
-            canonical: 'https://techtools.gummadii.com/qrcode',
-            meta: {
-                name: {
-                    keywords: 'QR Code, Generate QR, Free Tools, Business Tools, allinone'
-                }
-            }
-        };
         return (
-            <DocumentMeta {...meta}>
+            <>
+                <SEO
+                    title="QR Generator Techtools Store"
+                    description="Generate or Download any URL or Text into Scanable QR Code"
+                    canonical="https://techtools.gummadii.com/qrcode"
+                    keywords="QR Code, Generate QR, Free Tools, Business Tools, allinone"
+                />
                 <Header />
                 <div className="container">
                     <div style={{ marginTop: "100px" }}>
@@ -83,7 +79,7 @@ export default class QRCode extends Component {
                     </div>
                 </div>
                 <Footer />
-            </DocumentMeta>
+            </>
         )
     }
 }

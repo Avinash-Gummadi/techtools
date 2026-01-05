@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PDFMerger from 'pdf-merger-js/browser';
 import Header from './Header';
 import Footer from './Footer';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 
 export default class UploadPdf extends Component {
     constructor(props) {
@@ -40,25 +40,21 @@ export default class UploadPdf extends Component {
             };
 
             render().catch((err) => {
-                return this.setState({pdfUrl: 'Err' });
+                return this.setState({ pdfUrl: 'Err' });
             });
         };
         MergePdf(this.state.pdfArray);
     }
 
     render() {
-        const meta = {
-            title: 'Techtools Store Merge PDF Files',
-            description: 'Upload 2 or more PDF files to Merge into a single PDF file',
-            canonical: 'https://techtools.gummadii.com/pdfMerge',
-            meta: {
-                name: {
-                    keywords: 'Merge PDF Files, pdf merge'
-                }
-            }
-        };
         return (
-            <DocumentMeta {...meta}>
+            <>
+                <SEO
+                    title="Techtools Store Merge PDF Files"
+                    description="Upload 2 or more PDF files to Merge into a single PDF file"
+                    canonical="https://techtools.gummadii.com/pdfMerge"
+                    keywords="Merge PDF Files, pdf merge"
+                />
                 <Header />
                 <div className="container">
                     <div style={{ marginTop: "100px" }}>
@@ -122,11 +118,11 @@ export default class UploadPdf extends Component {
                                     </div>
                                 </form>
                             </>}
-                            {this.state.preview && <a href="/pdfMerge" className='text-center d-block text-decoration-underline' style={{fontWeight: "700",textDecoration: "underline",fontSize: "17px"}}>Start Over</a>}
+                        {this.state.preview && <a href="/pdfMerge" className='text-center d-block text-decoration-underline' style={{ fontWeight: "700", textDecoration: "underline", fontSize: "17px" }}>Start Over</a>}
                     </div>
                 </div>
                 <Footer />
-            </DocumentMeta>
+            </>
         )
     }
 }

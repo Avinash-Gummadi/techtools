@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { decryptPDF } from './pdf-encrypt';
 import Header from './Header';
 import Footer from './Footer';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 
 const UnlockPdf = () => {
     const [pdfFile, setPdfFile] = useState(null);
@@ -57,19 +57,14 @@ const UnlockPdf = () => {
         }
     };
 
-    const meta = {
-        title: 'Techtools Store Unlock PDF File',
-        description: 'Remove password protection from your PDF file',
-        canonical: 'https://techtools.gummadii.com/unlockPdf',
-        meta: {
-            name: {
-                keywords: 'Unlock PDF, remove pdf password, decrypt pdf'
-            }
-        }
-    };
-
     return (
-        <DocumentMeta {...meta}>
+        <>
+            <SEO
+                title="Techtools Store Unlock PDF File"
+                description="Remove password protection from your PDF file"
+                canonical="https://techtools.gummadii.com/unlock-pdf"
+                keywords="Unlock PDF, remove pdf password, decrypt pdf"
+            />
             <Header />
             <div className="site-section">
                 <div className="container" style={{ marginTop: "100px" }}>
@@ -107,7 +102,7 @@ const UnlockPdf = () => {
                 </div>
             </div>
             <Footer />
-        </DocumentMeta>
+        </>
     );
 };
 

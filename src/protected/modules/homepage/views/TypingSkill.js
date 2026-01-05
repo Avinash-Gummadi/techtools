@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TypingThroughInput from "./components/TypingThroughInput";
 import { loremIpsum } from 'react-lorem-ipsum';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -28,18 +28,14 @@ const TypingSkill = () => {
     settext(loremIpsum({ startWithLoremIpsum: false, random: true, avgWordsPerSentence: level, avgSentencesPerParagraph: level })[0]);
     setparaSize(level);
   }
-  const meta = {
-    title: 'Learn Typing in Techtools Store',
-    description: 'You can practice typing unlimited times level wise',
-    canonical: 'https://techtools.gummadii.com/learn-typing',
-    meta: {
-      name: {
-        keywords: 'typing, speed typing, fast typing'
-      }
-    }
-  };
   return (
-    <DocumentMeta {...meta}>
+    <>
+      <SEO
+        title="Learn Typing in Techtools Store"
+        description="You can practice typing unlimited times level wise"
+        canonical="https://techtools.gummadii.com/learn-typing"
+        keywords="typing, speed typing, fast typing"
+      />
       <Header />
       <div className="container" style={{ marginTop: "100px" }}>
         <div className="unit-5 text-center">
@@ -65,12 +61,12 @@ const TypingSkill = () => {
           //   "What is an example of a paragraph? A good example of a paragraph contains a topic sentence, details and a conclusion. 'There are many different kinds of animals that live in China. Tigers and leopards are animals that live in China's forests in the north"
           // }
           />
-          {count>0 && <button className="btn-danger btn-sm rounded border mr-3" onClick={() => {settext("The quick brown fox jumps over the lazy dog"); setcount(0); setparaSize(0)}}>Start Over</button>}
+          {count > 0 && <button className="btn-danger btn-sm rounded border mr-3" onClick={() => { settext("The quick brown fox jumps over the lazy dog"); setcount(0); setparaSize(0) }}>Start Over</button>}
           <button className="btn-primary btn-sm rounded border" onClick={() => NextText()}>next</button>
         </div>
       </div>
       <Footer />
-    </DocumentMeta>
+    </>
   );
 };
 
