@@ -372,8 +372,8 @@ export async function decryptPDF(pdfBytes, password) {
       throw new Error('Unsupported encryption filter: ' + (filter ? filter.asString() : 'none'));
     }
 
-    const v = encryptDict.get(PDFName.of('V')).asNumber();
-    const r = encryptDict.get(PDFName.of('R')).asNumber();
+    encryptDict.get(PDFName.of('V')).asNumber();
+    encryptDict.get(PDFName.of('R')).asNumber();
     const p = encryptDict.get(PDFName.of('P')).asNumber();
     const o = hexToBytes(encryptDict.get(PDFName.of('O')).asString());
     const u = hexToBytes(encryptDict.get(PDFName.of('U')).asString());

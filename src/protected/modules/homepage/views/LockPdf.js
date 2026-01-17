@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { PDFDocument } from 'pdf-lib/dist/pdf-lib.esm.js';
 import { encryptPDF } from './pdf-encrypt';
 import Header from './Header';
 import Footer from './Footer';

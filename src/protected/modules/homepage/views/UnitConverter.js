@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import SEO from '../../../../components/SEO';
@@ -26,11 +26,7 @@ const UnitConverter = () => {
         setResult('');
     }, [category]);
 
-    useEffect(() => {
-        convert();
-    }, [inputValue, fromUnit, toUnit]);
-
-    const convert = () => {
+    const convert = useCallback(() => {
         if (inputValue === '') {
             setResult('');
             return;
@@ -51,7 +47,11 @@ const UnitConverter = () => {
         }
 
         setResult(res.toFixed(4).replace(/\.?0+$/, '')); // Clean trailing zeros
-    };
+    }, [inputValue, fromUnit, toUnit, category]);
+
+    useEffect(() => {
+        convert();
+    }, [convert, inputValue, fromUnit, toUnit]);
 
     // Helper Conversion Functions
     const toMeters = (val, unit) => {

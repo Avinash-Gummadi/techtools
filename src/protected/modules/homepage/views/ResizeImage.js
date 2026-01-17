@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import SEO from '../../../../components/SEO';
@@ -66,7 +66,7 @@ const ResizeImage = () => {
         }
     };
 
-    const drawCanvas = () => {
+    const drawCanvas = useCallback(() => {
         if (!imagePreview || !canvasRef.current) return;
 
         const canvas = canvasRef.current;
@@ -98,11 +98,11 @@ const ResizeImage = () => {
             const y = (targetHeight - h) / 2;
             ctx.drawImage(imagePreview, x, y, w, h);
         }
-    };
+    }, [imagePreview, width, height, resizeMode, bgColor, originalDimensions]);
 
     useEffect(() => {
         drawCanvas();
-    }, [imagePreview, width, height, resizeMode, bgColor]);
+    }, [drawCanvas]);
 
     const downloadImage = () => {
         const canvas = canvasRef.current;
