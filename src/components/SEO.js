@@ -20,6 +20,19 @@ const SEO = ({ title, description, keywords, canonical }) => {
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
+
+            {/* Structured Data / Schema.org */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "WebApplication",
+                    "name": title,
+                    "description": description,
+                    "url": canonical,
+                    "applicationCategory": "MultimediaApplication",
+                    "operatingSystem": "Any"
+                })}
+            </script>
         </Helmet>
     );
 };

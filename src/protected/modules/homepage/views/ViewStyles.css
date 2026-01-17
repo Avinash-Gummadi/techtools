@@ -2,9 +2,9 @@
 
 /* --- General Container & Typography --- */
 .view-container {
-    margin-top: 100px; /* Increased to clear header */
-    margin-bottom: 80px;
-    max-width: 800px; /* Constrain width for better readability on desktop */
+    margin-top: 100px; /* Restored for global brand consistency */
+    margin-bottom: 40px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -66,11 +66,11 @@
 .list-card {
     background: #fff;
     border: none;
-    border-radius: 8px; /* Slightly smaller radius */
-    margin-bottom: 8px; /* Reduced margin */
-    padding: 10px 15px; /* Reduced padding */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Softer shadow */
-    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 6px; 
+    margin-bottom: 4px; 
+    padding: 6px 12px; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.04);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -80,10 +80,10 @@
 }
 
 .list-text {
-    font-size: 0.95rem; /* Slightly smaller text */
+    font-size: 0.85rem; 
     color: #2d3436;
     word-break: break-word;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
 .list-text.completed {
@@ -99,8 +99,16 @@
 }
 
 .list-card .btn span {
-    font-size: 0.9rem; /* Adjust icon size */
+    font-size: 0.85rem; 
     vertical-align: middle;
+}
+
+.btn-compact-tool {
+    padding: 3px 10px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    height: auto !important;
+    min-height: 0 !important;
 }
 
 /* --- Summary Section --- */
@@ -197,4 +205,51 @@
     justify-content: center;
     align-items: center;
     border-radius: 6px;
+}
+
+/* --- High-Fidelity Word Rendering --- */
+.word-render-container {
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+
+.word-render-container .docx-wrapper {
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+.word-render-container .docx {
+    margin: 0 auto !important;
+    box-shadow: none !important;
+}
+
+/* --- Premium Footer --- */
+.site-footer {
+    background: #1a1a1a !important;
+    color: #999;
+}
+
+.site-footer h3, .site-footer h5, .site-footer h6 {
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.footer-links li a {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links li a:hover {
+    color: #007bff !important;
+    transform: translateX(5px);
+}
+
+.hover-primary:hover {
+    color: #007bff !important;
+}
+
+.bg-white-50 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
 }

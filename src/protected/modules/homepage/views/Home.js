@@ -13,10 +13,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Techtools Store"
-        description="Our Techtools Store have all the market rich tools"
+        title="Techtools Store | Free Online PDF, Image & Productivity Tools"
+        description="Techtools Store offers a comprehensive suite of free online tools including PDF merging, Word to PDF conversion, image compression, QR code generation, and expense tracking. Simple, browser-based, and secure personal productivity tools."
         canonical="https://techtools.gummadii.com/"
-        keywords="Free Tools, Business Tools, allinone"
+        keywords="Free Online Tools, PDF Merger, Word to PDF, Image Converter, QR Generator, Expense Tracker, Techtools Store"
       />
       <div>
         <Header />
@@ -24,8 +24,8 @@ export default function Home() {
           <div className="container">
             <div className="row align-items-center justify-content-between">
               <div className="col-lg-7 intro">
-                <h1 className="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">We turn ideas into extraordinary digital products</h1>
-                <p className="text-white mb-4" data-aos="fade-up" data-aos-delay="100">Powerful online tools for everyday tasks—generate QR codes, merge PDFs, convert images, and more—simple, fast, and reliable to streamline your digital workflow.</p>
+                <h1 className="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">All-in-One Online Productivity Tools For Free</h1>
+                <p className="text-white mb-4" data-aos="fade-up" data-aos-delay="100">Access powerful, professional-grade tools directly in your browser. From document management and image processing to daily organization—Techtools Store streamlines your digital workflow without any cost.</p>
                 {/* <form action="https://google.com" className="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="200">
                   <input type="email" className="form-control" placeholder="Enter email address"></input>
                   <input type="submit" className="btn btn-primary" value="Sign up"></input>
@@ -78,6 +78,7 @@ export default function Home() {
               </div>
             </div>
             <div className="row align-items-stretch">
+              {/* 1. Merge PDF Files */}
               <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                 <Link to="pdfMerge">
                   <div className="unit-4 d-flex">
@@ -91,20 +92,39 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
+
+              {/* 2. Word to PDF */}
               <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <Link to="imgConverter">
+                <Link to="word-to-pdf">
                   <div className="unit-4 d-flex">
                     <div className="unit-4-icon mr-4">
-                      <span className="feather-image"></span>
+                      <span className="feather-file-text"></span>
                     </div>
                     <div>
-                      <h3>Image Converter</h3>
-                      <p>Upload any image to Convert into jpg or png or webp</p>
+                      <h3>Word to PDF</h3>
+                      <p>Convert multiple DOCX files to PDF</p>
                     </div>
                   </div>
                 </Link>
               </div>
+
+              {/* 3. Unlock PDF */}
               <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <Link to="unlock-pdf">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-unlock"></span>
+                    </div>
+                    <div>
+                      <h3>Unlock PDF</h3>
+                      <p>Remove password protection from your PDF files</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 4. Generate QR code */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
                 <Link to="qrcode">
                   <div className="unit-4 d-flex">
                     <div className="unit-4-icon mr-4">
@@ -118,7 +138,23 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
+              {/* 5. Image Converter */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
+                <Link to="imgConverter">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-image"></span>
+                    </div>
+                    <div>
+                      <h3>Image Converter</h3>
+                      <p>Upload any image to Convert into jpg or png or webp</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 6. Image Compressor */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
                 <Link to="imageCompress">
                   <div className="unit-4 d-flex">
                     <div className="unit-4-icon mr-4">
@@ -131,7 +167,69 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
+
+              {/* 7. Unit Converter */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="600">
+                <Link to="unit-converter">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-refresh-cw"></span>
+                    </div>
+                    <div>
+                      <h3>Unit Converter</h3>
+                      <p>Instantly convert Length, Weight, Temperature and more</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 8. Resize Image */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="700">
+                <Link to="resize-image">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-maximize"></span>
+                    </div>
+                    <div>
+                      <h3>Resize Image</h3>
+                      <p>Upload, resize, crop, and convert your images instantly</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 9. Lock PDF */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="800">
+                <Link to="lock-pdf">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-lock"></span>
+                    </div>
+                    <div>
+                      <h3>Lock PDF</h3>
+                      <p>Protect your PDF files with a password</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 10. Expense Tracker */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="900">
+                <Link to="expense-tracker">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-dollar-sign"></span>
+                    </div>
+                    <div>
+                      <h3>Expense Tracker</h3>
+                      <p>Track your daily spending and stay on budget</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 11. ToDo List */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="1000">
                 <Link to="todo">
                   <div className="unit-4 d-flex">
                     <div className="unit-4-icon mr-4">
@@ -144,7 +242,24 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+
+              {/* 12. Daily Tasks */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="1100">
+                <Link to="regularchecks">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-check-square"></span>
+                    </div>
+                    <div>
+                      <h3>Daily Tasks</h3>
+                      <p>Your daily checklist. It will reset everyday</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* 13. Typing Skills */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="1200">
                 <Link to="learn-typing">
                   <div className="unit-4 d-flex">
                     <div className="unit-4-icon mr-4">
@@ -153,84 +268,6 @@ export default function Home() {
                     <div>
                       <h3>Typing Skills</h3>
                       <p>You can practice typing with unlimited levels</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="600">
-                <Link to="regularchecks">
-                  <div className="unit-4 d-flex">
-                    <div className="unit-4-icon mr-4">
-                      <span className="feather-check-square"></span>
-                    </div>
-                    <div>
-                      <h3>Daily Tasks</h3>
-                      <p>Your daily checklist. It will reset everyday.</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="700">
-                <Link to="lock-pdf">
-                  <div className="unit-4 d-flex">
-                    <div className="unit-4-icon mr-4">
-                      <span className="feather-lock"></span>
-                    </div>
-                    <div>
-                      <h3>Lock PDF</h3>
-                      <p>Protect your PDF files with a password.</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="800">
-                <Link to="unlock-pdf">
-                  <div className="unit-4 d-flex">
-                    <div className="unit-4-icon mr-4">
-                      <span className="feather-unlock"></span>
-                    </div>
-                    <div>
-                      <h3>Unlock PDF</h3>
-                      <p>Remove password protection from your PDF files.</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="900">
-                <Link to="unit-converter">
-                  <div className="unit-4 d-flex">
-                    <div className="unit-4-icon mr-4">
-                      <span className="feather-refresh-cw"></span>
-                    </div>
-                    <div>
-                      <h3>Unit Converter</h3>
-                      <p>Instantly convert Length, Weight, Temperature and more.</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="1000">
-                <Link to="expense-tracker">
-                  <div className="unit-4 d-flex">
-                    <div className="unit-4-icon mr-4">
-                      <span className="feather-dollar-sign"></span>
-                    </div>
-                    <div>
-                      <h3>Expense Tracker</h3>
-                      <p>Track your daily spending and stay on budget.</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="1100">
-                <Link to="resize-image">
-                  <div className="unit-4 d-flex">
-                    <div className="unit-4-icon mr-4">
-                      <span className="feather-maximize"></span>
-                    </div>
-                    <div>
-                      <h3>Resize Image</h3>
-                      <p>Upload, resize, crop, and convert your images instantly.</p>
                     </div>
                   </div>
                 </Link>
@@ -558,6 +595,44 @@ export default function Home() {
             </div>
           </div>
         </div> */}
+
+        <div className="site-section bg-light border-top">
+          <div className="container">
+            <div className="row justify-content-center text-center mb-5">
+              <div className="col-md-8">
+                <h2 className="font-weight-bold text-black mb-3">Why Use Techtools Store?</h2>
+                <p className="text-muted">We provide a centralized hub for all your daily digital needs, focusing on speed, security, and simplicity.</p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4 mb-4">
+                <div className="p-4 bg-white shadow-sm rounded border h-100">
+                  <h5 className="font-weight-bold text-primary mb-3">100% Secure & Private</h5>
+                  <p className="small text-muted mb-0">Privacy is our priority. All processing—whether merging PDFs or converting images—happens entirely in your browser. Your sensitive files and data never leave your device.</p>
+                </div>
+              </div>
+              <div className="col-md-4 mb-4">
+                <div className="p-4 bg-white shadow-sm rounded border h-100">
+                  <h5 className="font-weight-bold text-primary mb-3">No Installation Required</h5>
+                  <p className="small text-muted mb-0">Forget heavy software. Our web-based tools work instantly on any device and operating system. All you need is a modern web browser and an internet connection.</p>
+                </div>
+              </div>
+              <div className="col-md-4 mb-4">
+                <div className="p-4 bg-white shadow-sm rounded border h-100">
+                  <h5 className="font-weight-bold text-primary mb-3">Completely Free Forever</h5>
+                  <p className="small text-muted mb-0">High-quality digital tools shouldn't come with a high price tag. Techtools Store provides professional-grade features without subscriptions, limits, or hidden costs.</p>
+                </div>
+              </div>
+            </div>
+            <div className="row mt-4">
+              <div className="col-12 text-center">
+                <p className="text-muted small px-lg-5">
+                  Techtools Store is designed for professionals, students, and casual users who need things done fast. Whether you're combining reports into a single PDF, creating QR codes for your business, or tracking your daily budget, our suite of tools is here to help you stay productive and organized every single day.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <Footer />
       </div>

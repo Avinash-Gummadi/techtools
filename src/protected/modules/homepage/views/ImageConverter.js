@@ -42,10 +42,10 @@ export default class ImageConverter extends Component {
         return (
             <>
                 <SEO
-                    title="Techtools Store Image Converter"
-                    description="Upload any image to Convert into jpg or png or webp"
+                    title="Image Converter | Convert Images to JPG, PNG, WEBP Online"
+                    description="Easily convert any image format to JPG, PNG, or WEBP. Fast, free, and high-quality image conversion directly in your browser."
+                    keywords="Image Converter, png to jpg, jpg to webp, webp converter, free image tools, techtools"
                     canonical="https://techtools.gummadii.com/imgConverter"
-                    keywords="Image Converter, png, jpg, webp"
                 />
                 <Header />
                 <div className="container">
