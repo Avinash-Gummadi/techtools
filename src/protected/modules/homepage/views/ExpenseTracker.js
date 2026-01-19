@@ -3,19 +3,16 @@ import Header from './Header';
 import Footer from './Footer';
 import SEO from '../../../../components/SEO';
 import './ViewStyles.css';
+import html2pdf from 'html2pdf.js';
 
 const ExpenseTracker = () => {
-    const [expenses, setExpenses] = useState([]);
+    const [expenses, setExpenses] = useState(() => {
+        const storedExpenses = window.localStorage.getItem('myExpenses');
+        return storedExpenses ? JSON.parse(storedExpenses) : [];
+    });
     const [description, setDescription] = useState('');
     const [amount, setAmount] = useState('');
     const [total, setTotal] = useState(0);
-
-    useEffect(() => {
-        const storedExpenses = window.localStorage.getItem('myExpenses');
-        if (storedExpenses) {
-            setExpenses(JSON.parse(storedExpenses));
-        }
-    }, []);
 
     useEffect(() => {
         const t = expenses.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
@@ -26,11 +23,17 @@ const ExpenseTracker = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (description && amount) {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            const formattedDate = `${day}/${month}/${year}`;
+
             const newExpense = {
                 id: Date.now(),
                 description,
                 amount: parseFloat(amount),
-                date: new Date().toLocaleDateString()
+                date: formattedDate
             };
             setExpenses([newExpense, ...expenses]);
             setDescription('');
@@ -48,6 +51,51 @@ const ExpenseTracker = () => {
         }
     };
 
+    const downloadPDF = () => {
+        const element = document.createElement('div');
+        element.innerHTML = `
+            <div style="padding: 20px; font-family: Arial, sans-serif;">
+                <h1 style="text-align: center; color: #333;">Expense Report</h1>
+                <p style="text-align: center; color: #666;">Generated on: ${new Date().toLocaleDateString('en-GB')}</p>
+                <hr style="border: 1px solid #eee;" />
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: #f8f9fa;">
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Date</th>
+                            <th style="padding: 12px; text-align: right; border-bottom: 2px solid #dee2e6;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${expenses.map(exp => `
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">${exp.description}</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">${exp.date}</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">₹${exp.amount.toFixed(2)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                    <tfoot>
+                        <tr style="font-weight: bold; background-color: #f8f9fa;">
+                            <td colspan="2" style="padding: 12px; text-align: right;">Total Spent:</td>
+                            <td style="padding: 12px; text-align: right;">₹${total.toFixed(2)}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        `;
+
+        const opt = {
+            margin: 1,
+            filename: `expenses_${new Date().toLocaleDateString('en-GB').replace(/\//g, '-')}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().from(element).set(opt).save();
+    };
+
     return (
         <div>
             <SEO
@@ -59,12 +107,12 @@ const ExpenseTracker = () => {
             <Header />
             <div className="container">
                 <div className="view-container">
-                    <div className="text-center mb-5">
-                        <div className="mb-3">
+                    <div className="text-center mb-2">
+                        <div className="mb-2">
                             <span className="bi bi-wallet2 text-primary" style={{ fontSize: '2.5rem' }}></span>
                         </div>
-                        <h3 className="font-weight-bold">Smart Expense Tracker</h3>
-                        <p className="text-muted">Track your daily spending and stay on budget.</p>
+                        <h3 className="font-weight-bold">Expense Tracker</h3>
+                        <p className="text-muted mb-0">Track your daily spending and stay on budget</p>
                     </div>
 
                     <div className="card border-0 shadow-sm p-4 mb-4">
@@ -102,9 +150,16 @@ const ExpenseTracker = () => {
 
                     {expenses.length > 0 && (
                         <div className="summary-bar mb-4">
-                            <span className="text-muted">Total Spent</span>
-                            <h3 className="text-primary font-weight-bold mb-0">₹{total.toFixed(2)}</h3>
-                            <button className="btn btn-sm btn-light text-danger" onClick={clearAll}>Clear All</button>
+                            <div className="d-flex align-items-center">
+                                <span className="text-muted mr-3">Total Spent</span>
+                                <h3 className="text-primary font-weight-bold mb-0">₹{total.toFixed(2)}</h3>
+                            </div>
+                            <div className="d-flex gap-2">
+                                <button className="btn btn-sm btn-light text-primary mr-2" onClick={downloadPDF}>
+                                    <span className="bi bi-download mr-1"></span>
+                                </button>
+                                <button className="btn btn-sm btn-light text-danger" onClick={clearAll}>Clear All</button>
+                            </div>
                         </div>
                     )}
 
