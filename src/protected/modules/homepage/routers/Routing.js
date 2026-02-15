@@ -29,9 +29,9 @@ import UnitConverter from '../views/UnitConverter';
 import ExpenseTracker from '../views/ExpenseTracker';
 import ResizeImage from '../views/ResizeImage';
 import WordToPdf from '../views/WordToPdf';
+import VideoToGlimpse from '../views/VideoToGlimpse';
+import ErrorPage from '../views/ErrorPage';
 import ScrollToTop from '../../../../protected/components/ScrollToTop';
-
-const ErrorPage = () => <div><h1>Page Not Found, contact administrator. Later design page for this</h1></div>
 
 const Routing = () => {
     return (
@@ -62,6 +62,7 @@ const Routing = () => {
                 <Route exact={true} path="resize-image" element={<ResizeImage />}></Route>
                 <Route exact={true} path="auth" element={<Authuser />}></Route>
                 <Route exact={true} path="word-to-pdf" element={<WordToPdf />}></Route>
+                <Route exact={true} path="video-to-glimpse" element={<VideoToGlimpse />}></Route>
                 <Route exact={true} path='*' element={<ErrorPage />}></Route>
             </Routes>
         </Router>

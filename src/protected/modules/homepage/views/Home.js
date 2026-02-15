@@ -272,6 +272,21 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
+
+              {/* 14. Video to GIF */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="1300">
+                <Link to="/video-to-glimpse">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-video bi bi-film"></span>
+                    </div>
+                    <div>
+                      <h3>Video Glimpse</h3>
+                      <p>Convert videos into high-quality short glimpses or loops.</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
