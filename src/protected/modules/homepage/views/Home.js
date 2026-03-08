@@ -168,6 +168,21 @@ export default function Home() {
                 </Link>
               </div>
 
+              {/* Audio Compressor */}
+              <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="550">
+                <Link to="audioCompress">
+                  <div className="unit-4 d-flex">
+                    <div className="unit-4-icon mr-4">
+                      <span className="feather-mic"></span>
+                    </div>
+                    <div>
+                      <h3>Audio Compressor</h3>
+                      <p>You can Upload any Audio file to Compress without losing quality</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
               {/* 7. Unit Converter */}
               <div className="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="600">
                 <Link to="unit-converter">

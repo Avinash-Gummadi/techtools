@@ -17,6 +17,7 @@ import ImageConverter from '../views/ImageConverter';
 import TestFile from '../views/TestFile'; //Remove finally
 import QRCode from '../views/QRCode';
 import ImageCompress from '../views/ImageCompress'
+import AudioCompress from '../views/AudioCompress'
 import ToDo from '../views/ToDo';
 import TypingSkill from '../views/TypingSkill';
 import PieChartCode from '../views/PieChartCode';
@@ -54,6 +55,7 @@ const Routing = () => {
                 <Route exact={true} path="piechart" element={<PieChartCode />}></Route>
                 <Route exact={true} path="barchart" element={<BarChart />}></Route>
                 <Route exact={true} path="imageCompress" element={<ImageCompress />}></Route>
+                <Route exact={true} path="audioCompress" element={<AudioCompress />}></Route>
                 <Route exact={true} path="regularchecks" element={<RegularChecks />}></Route>
                 <Route exact={true} path="lock-pdf" element={<LockPdf />}></Route>
                 <Route exact={true} path="unlock-pdf" element={<UnlockPdf />}></Route>
