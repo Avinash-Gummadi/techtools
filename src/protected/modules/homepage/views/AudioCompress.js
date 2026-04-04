@@ -158,7 +158,6 @@ export default class AudioCompress extends Component {
 
     render() {
         const { quality, isCompressing, progress, audioUrl, originalAudio, compressedAudio, errorMsg } = this.state;
-        const preset = QUALITY_PRESETS[quality];
 
         return (
             <>
