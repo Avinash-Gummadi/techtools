@@ -4,6 +4,20 @@ import Footer from './Footer';
 import SEO from '../../../../components/SEO';
 import lamejs from '@breezystack/lamejs';
 
+// Format a size given in KB into a human-readable string
+const formatSize = (kb) => {
+    if (kb < 1024) return `${kb} KB`;
+    if (kb < 1024 * 1024) return `${(kb / 1024).toFixed(1)} MB`;
+    return `${(kb / (1024 * 1024)).toFixed(2)} GB`;
+};
+
+// Quality presets: [label, stereo kbps, mono kbps, description]
+const QUALITY_PRESETS = {
+    low:    { label: 'Low', desc: 'Low quality, high compression' },
+    medium: { label: 'Medium', desc: 'Good balance of size and quality' },
+    high:   { label: 'High', desc: 'Best quality, least compression' },
+};
+
 export default class AudioCompress extends Component {
     constructor(props) {
         super(props);
@@ -13,6 +27,8 @@ export default class AudioCompress extends Component {
             originalAudio: [],
             compressedAudio: [],
             isCompressing: false,
+            progress: 0,
+            quality: 'medium',   // default preset
             errorMsg: ''
         };
     }
@@ -20,15 +36,16 @@ export default class AudioCompress extends Component {
     async onFileChange(e) {
         if (!e.target.files.length) return;
         const file = e.target.files[0];
+        const { quality } = this.state;
 
-        // Convert to AudioBuffer to get accurate sizes and format
         this.setState({
             originalAudio: [file.type || 'audio/*', Math.round(file.size / 1024), URL.createObjectURL(file)],
             isCompressing: true,
+            progress: 0,
             errorMsg: ''
         });
 
-        // Let React re-render before freezing the main thread
+        // Let React re-render before starting heavy work
         setTimeout(async () => {
             try {
                 const arrayBuffer = await file.arrayBuffer();
@@ -37,7 +54,10 @@ export default class AudioCompress extends Component {
 
                 const channels = audioBuffer.numberOfChannels;
                 const sampleRate = audioBuffer.sampleRate;
-                const kbps = channels === 2 ? 128 : 64; // Default to 128kbps stereo or 64kbps mono
+
+                // Pick bitrate from selected quality preset
+                const preset = QUALITY_PRESETS[quality] || QUALITY_PRESETS.medium;
+                const kbps = channels === 2 ? preset.stereo : preset.mono;
 
                 const mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, kbps);
                 const mp3Data = [];
@@ -65,7 +85,14 @@ export default class AudioCompress extends Component {
                     floatTo16BitPCM(right, right16);
                 }
 
-                // Chunked encoding to avoid freezing the browser on very large files
+                // Scale blocks-per-frame by file size: more blocks = faster for large files
+                const fileMB = file.size / (1024 * 1024);
+                const blocksPerFrame = Math.min(800, Math.max(100, Math.round(fileMB * 12)));
+
+                // Only push a progress update every ~2% of total samples
+                const progressStep = Math.max(1, Math.floor(left16.length * 0.02));
+                let lastReportedOffset = 0;
+
                 const encodeChunk = (offset) => {
                     if (offset >= left16.length) {
                         const mp3buf = mp3encoder.flush();
@@ -79,14 +106,20 @@ export default class AudioCompress extends Component {
 
                         this.setState({
                             audioUrl: compressedUrl,
-                            compressedAudio: ['audio/mp3', Math.round(blob.size / 1024), compressedUrl, compressPercent, file.name.replace(/\.[^/.]+$/, "") + '_compressed.mp3'],
-                            isCompressing: false
+                            compressedAudio: [
+                                'audio/mp3',
+                                Math.round(blob.size / 1024),
+                                compressedUrl,
+                                compressPercent,
+                                file.name.replace(/\.[^/.]+$/, '') + '_compressed.mp3'
+                            ],
+                            isCompressing: false,
+                            progress: 100
                         });
                         return;
                     }
 
-                    // Process up to 100 chunks per frame
-                    for (let k = 0; k < 100 && offset < left16.length; k++, offset += sampleBlockSize) {
+                    for (let k = 0; k < blocksPerFrame && offset < left16.length; k++, offset += sampleBlockSize) {
                         const leftChunk = left16.subarray(offset, offset + sampleBlockSize);
                         let mp3buf;
                         if (channels === 2) {
@@ -100,6 +133,13 @@ export default class AudioCompress extends Component {
                         }
                     }
 
+                    // Throttle state updates to every ~2%
+                    if (offset - lastReportedOffset >= progressStep) {
+                        lastReportedOffset = offset;
+                        const pct = Math.min(99, Math.round((offset / left16.length) * 100));
+                        this.setState({ progress: pct });
+                    }
+
                     setTimeout(() => encodeChunk(offset), 0);
                 };
 
@@ -108,14 +148,18 @@ export default class AudioCompress extends Component {
             } catch (err) {
                 console.error('Error compressing audio:', err);
                 this.setState({
-                    errorMsg: 'err',
-                    isCompressing: false
+                    errorMsg: 'Something went wrong. The audio format may not be supported. Please try a different file.',
+                    isCompressing: false,
+                    audioUrl: 'error'
                 });
             }
         }, 100);
     }
 
     render() {
+        const { quality, isCompressing, progress, audioUrl, originalAudio, compressedAudio, errorMsg } = this.state;
+        const preset = QUALITY_PRESETS[quality];
+
         return (
             <>
                 <SEO
@@ -125,7 +169,7 @@ export default class AudioCompress extends Component {
                     keywords="Audio Compressor, Compress, Compressor"
                 />
                 <Header />
-                <div className="container" style={{ marginTop: "100px" }}>
+                <div className="container" style={{ marginTop: '100px' }}>
                     <div className="unit-5 text-center">
                         <div className="unit-4-icon mr-4">
                             <span className="feather-mic"></span>
@@ -136,58 +180,115 @@ export default class AudioCompress extends Component {
                         </div>
                     </div>
 
-                    {this.state.isCompressing ? (
-                        <div className="text-center" style={{ margin: "55px" }}>
-                            <div className="spinner-border text-primary" role="status" style={{ width: "3rem", height: "3rem" }}>
-                                <span className="sr-only">Loading...</span>
+                    {isCompressing ? (
+                        <div className="text-center" style={{ margin: '55px' }}>
+                            <p className="mb-1" style={{ fontWeight: 600 }}>
+                                Compressing audio... {progress}%
+                            </p>
+                            <div className="progress" style={{ height: '18px', borderRadius: '9px', maxWidth: '420px', margin: '0 auto' }}>
+                                <div
+                                    className="progress-bar progress-bar-striped progress-bar-animated"
+                                    role="progressbar"
+                                    style={{ width: `${progress}%`, transition: 'width 0.3s ease' }}
+                                    aria-valuenow={progress}
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                >
+                                    {progress > 8 ? `${progress}%` : ''}
+                                </div>
                             </div>
-                            <h5 className="mt-3">Compressing audio... Please wait.</h5>
+                            <p className="text-muted mt-2" style={{ fontSize: '13px' }}>
+                                {originalAudio[1] ? `File size: ${formatSize(originalAudio[1])}` : ''}
+                                {originalAudio[1] > 20480 ? ' — Large file, this may take a minute.' : ''}
+                            </p>
                         </div>
-                    ) : (this.state.audioUrl ? (
-                        this.state.errorMsg === 'err' ?
-                            <span style={{ color: "red", display: "block" }} className="text-center">Something Went Wrong...Please try again</span>
-                            :
-                            <div style={{ margin: "55px" }} className="text-center">
-                                <div style={{ display: "flex", justifyContent: "center", gap: "80px", margin: "10px", flexWrap: "wrap" }}>
+                    ) : (audioUrl ? (
+                        audioUrl === 'error' ? (
+                            <div className="text-center" style={{ margin: '55px' }}>
+                                <span style={{ color: 'red', display: 'block', marginBottom: '12px', fontSize: '16px' }}>
+                                    ⚠️ {errorMsg}
+                                </span>
+                                <a href="/audioCompress" className="btn btn-outline-primary mt-2">Try Again</a>
+                            </div>
+                        ) : (
+                            <div style={{ margin: '55px' }} className="text-center">
+                                <div style={{ display: 'flex', justifyContent: 'center', gap: '80px', margin: '10px', flexWrap: 'wrap' }}>
                                     <div>
-                                        <div style={{ padding: "20px", background: "#f8f9fa", borderRadius: "8px", display: "inline-block" }}>
-                                            <span className="feather-music" style={{ fontSize: "60px", color: "#6c757d" }}></span>
+                                        <div style={{ padding: '20px', background: '#f8f9fa', borderRadius: '8px', display: 'inline-block' }}>
+                                            <span className="feather-music" style={{ fontSize: '60px', color: '#6c757d' }}></span>
                                         </div>
                                         <br />
-                                        <span>Type: {this.state.originalAudio[0]}</span><br />
-                                        <span>Size: {this.state.originalAudio[1]} KB</span><br />
-                                        <audio controls src={this.state.originalAudio[2]} style={{ marginTop: "10px", width: "250px" }} />
+                                        <span>Type: {originalAudio[0]}</span><br />
+                                        <span>Size: {formatSize(originalAudio[1])}</span><br />
+                                        <audio controls src={originalAudio[2]} style={{ marginTop: '10px', width: '250px' }} />
                                     </div>
-                                    <div className="unit-5" style={{ display: "flex", alignItems: "center" }}>
+                                    <div className="unit-5" style={{ display: 'flex', alignItems: 'center' }}>
                                         <div className="unit-4-icon mb-5">
                                             <span className="feather-fast-forward"></span>
                                         </div>
                                     </div>
                                     <div>
-                                        <div style={{ padding: "20px", background: "#f8f9fa", borderRadius: "8px", display: "inline-block" }}>
-                                            <span className="feather-music" style={{ fontSize: "60px", color: "#28a745" }}></span>
+                                        <div style={{ padding: '20px', background: '#f8f9fa', borderRadius: '8px', display: 'inline-block' }}>
+                                            <span className="feather-music" style={{ fontSize: '60px', color: '#28a745' }}></span>
                                         </div>
                                         <br />
-                                        <span>Type: {this.state.compressedAudio[0]}</span><br />
-                                        <span>Size: {this.state.compressedAudio[1]} KB</span><br />
-                                        <audio controls src={this.state.compressedAudio[2]} style={{ marginTop: "10px", width: "250px" }} />
+                                        <span>Type: {compressedAudio[0]}</span><br />
+                                        <span>Size: {formatSize(compressedAudio[1])}</span><br />
+                                        <audio controls src={compressedAudio[2]} style={{ marginTop: '10px', width: '250px' }} />
                                     </div>
                                 </div>
-                                <a href={this.state.audioUrl} className="btn btn-primary mt-4" download={this.state.compressedAudio[4]}>Download Audio</a>
-                                {this.state.compressedAudio[3] > 0 ? (
-                                    <h6 style={{ textCenter: "center", margin: "15px" }}>Audio Compressed up to {this.state.compressedAudio[3]}%</h6>
+                                <a href={audioUrl} className="btn btn-primary mt-4" download={compressedAudio[4]}>Download Audio</a>
+                                {compressedAudio[3] > 0 ? (
+                                    <h6 style={{ textAlign: 'center', margin: '15px' }}>Audio Compressed up to {compressedAudio[3]}%</h6>
                                 ) : (
-                                    <h6 style={{ textCenter: "center", margin: "15px" }}>Audio Compressed (Size increased by {Math.abs(this.state.compressedAudio[3])}%)</h6>
+                                    <h6 style={{ textAlign: 'center', margin: '15px' }}>Size changed by {Math.abs(compressedAudio[3])}%</h6>
                                 )}
-                                <a href="/audioCompress" className='text-center d-block text-decoration-underline' style={{ fontWeight: "700", textDecoration: "underline", fontSize: "17px", marginTop: "15px" }}>Start Over</a>
+                                <a href="/audioCompress" className="text-center d-block" style={{ fontWeight: '700', textDecoration: 'underline', fontSize: '17px', marginTop: '15px' }}>Start Over</a>
                             </div>
+                        )
                     ) : (
                         <form onSubmit={e => e.preventDefault()}>
+                            {/* Quality selector */}
+                            <div className="text-center mb-3">
+                                <p className="mb-2" style={{ fontWeight: 600 }}>Select Compression Quality</p>
+                                <div style={{ display: 'inline-flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center' }}>
+                                    {Object.entries(QUALITY_PRESETS).map(([key, p]) => (
+                                        <button
+                                            key={key}
+                                            type="button"
+                                            onClick={() => this.setState({ quality: key })}
+                                            style={{
+                                                padding: '10px 20px',
+                                                borderRadius: '8px',
+                                                border: quality === key ? '2px solid #007bff' : '2px solid #dee2e6',
+                                                background: quality === key ? '#e8f0fe' : '#fff',
+                                                cursor: 'pointer',
+                                                fontWeight: quality === key ? 700 : 400,
+                                                color: quality === key ? '#007bff' : '#495057',
+                                                transition: 'all 0.2s'
+                                            }}
+                                        >
+                                            <div style={{ fontSize: '14px' }}>{p.label}</div>
+                                            <div style={{ fontSize: '11px', color: '#888', marginTop: '2px' }}>{p.desc}</div>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
                             <div className="form-group text-center">
                                 <span>
-                                    <label htmlFor="audioUploadBtn" className="btn btn-primary"><span className="feather-upload"></span> Upload Audio</label><br />
+                                    <label htmlFor="audioUploadBtn" className="btn btn-primary">
+                                        <span className="feather-upload"></span> Upload Audio
+                                    </label><br />
                                 </span>
-                                <input type="file" name="audioCollection" id="audioUploadBtn" accept="audio/*" onChange={this.onFileChange} style={{ display: "none" }} />
+                                <input
+                                    type="file"
+                                    name="audioCollection"
+                                    id="audioUploadBtn"
+                                    accept="audio/*"
+                                    onChange={this.onFileChange}
+                                    style={{ display: 'none' }}
+                                />
                             </div>
                         </form>
                     )
@@ -195,6 +296,6 @@ export default class AudioCompress extends Component {
                 </div>
                 <Footer />
             </>
-        )
+        );
     }
 }
