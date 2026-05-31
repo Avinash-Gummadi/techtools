@@ -45,6 +45,7 @@
     "react-translate": "^7.0.1",
     "react-translator-component": "^2.2.0",
     "react-typing-game-hook": "^1.4.2",
+    "sarvamai": "^1.1.4",
     "web-vitals": "^5.1.0"
   },
   "scripts": {
