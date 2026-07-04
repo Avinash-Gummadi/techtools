@@ -1,21 +1,17 @@
 import React from 'react';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 import Header from './Header';
 import Footer from './Footer';
 
 const TypingTips = () => {
-    const meta = {
-        title: 'Tips for Typing | WebLaunch Store',
-        description: 'List your Bucket of Works. You can edit, complete, delete the list',
-        canonical: 'http://localhost:3000/todo',
-        meta: {
-            name: {
-                keywords: 'ToDo, Bucket, Works, Tasks'
-            }
-        }
-    };
     return (
-        <DocumentMeta {...meta}>
+        <>
+            <SEO
+                title="Tips for Typing | Techtools Store"
+                description="List your Bucket of Works. You can edit, complete, delete the list"
+                canonical="https://techtools.gummadii.com/typing-tips"
+                keywords="ToDo, Bucket, Works, Tasks"
+            />
             <Header />
             <div className='container' style={{ marginTop: "100px" }}>
                 <div className='d-flex align-items-center'>
@@ -80,7 +76,7 @@ const TypingTips = () => {
                 </div>
             </div>
             <Footer />
-        </DocumentMeta>
+        </>
     )
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import imageCompression from 'browser-image-compression';
 import Header from './Header';
 import Footer from './Footer';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 
 export default class UploadPdf extends Component {
     constructor(props) {
@@ -38,18 +38,14 @@ export default class UploadPdf extends Component {
     }
 
     render() {
-        const meta = {
-            title: 'WebLaunch Store Image Compressor',
-            description: 'Upload any Image to Compress',
-            canonical: 'http://localhost:3000/imageCompress',
-            meta: {
-                name: {
-                    keywords: 'Image Compressor, Compress, Compressor'
-                }
-            }
-        };
         return (
-            <DocumentMeta {...meta}>
+            <>
+                <SEO
+                    title="Techtools Store Image Compressor"
+                    description="Upload any Image to Compress"
+                    canonical="https://techtools.gummadii.com/imageCompress"
+                    keywords="Image Compressor, Compress, Compressor"
+                />
                 <Header />
                 <div className="container" style={{ marginTop: "100px" }}>
                     <div className="unit-5 text-center">
@@ -102,7 +98,7 @@ export default class UploadPdf extends Component {
                         </>}
                 </div>
                 <Footer />
-            </DocumentMeta>
+            </>
         )
     }
 }

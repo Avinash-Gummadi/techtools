@@ -17,17 +17,27 @@ import ImageConverter from '../views/ImageConverter';
 import TestFile from '../views/TestFile'; //Remove finally
 import QRCode from '../views/QRCode';
 import ImageCompress from '../views/ImageCompress'
+import AudioCompress from '../views/AudioCompress'
 import ToDo from '../views/ToDo';
 import TypingSkill from '../views/TypingSkill';
 import PieChartCode from '../views/PieChartCode';
 import TypingTips from '../views/TypingTips';
 import BarChart from '../views/BarChart';
-
-const ErrorPage = () => <div><h1>Page Not Found, contact administrator. Later design page for this</h1></div>
+import RegularChecks from '../views/RegularChecks';
+import LockPdf from '../views/LockPdf';
+import UnlockPdf from '../views/UnlockPdf';
+import UnitConverter from '../views/UnitConverter';
+import ExpenseTracker from '../views/ExpenseTracker';
+import ResizeImage from '../views/ResizeImage';
+import WordToPdf from '../views/WordToPdf';
+import VideoToGlimpse from '../views/VideoToGlimpse';
+import ErrorPage from '../views/ErrorPage';
+import ScrollToTop from '../../../../protected/components/ScrollToTop';
 
 const Routing = () => {
     return (
         <Router>
+            <ScrollToTop />
             <Routes>
                 <Route exact={true} path="/" element={<Home />}></Route>
                 <Route exact={true} path="about" element={<About />}></Route>
@@ -45,7 +55,16 @@ const Routing = () => {
                 <Route exact={true} path="piechart" element={<PieChartCode />}></Route>
                 <Route exact={true} path="barchart" element={<BarChart />}></Route>
                 <Route exact={true} path="imageCompress" element={<ImageCompress />}></Route>
+                <Route exact={true} path="audioCompress" element={<AudioCompress />}></Route>
+                <Route exact={true} path="regularchecks" element={<RegularChecks />}></Route>
+                <Route exact={true} path="lock-pdf" element={<LockPdf />}></Route>
+                <Route exact={true} path="unlock-pdf" element={<UnlockPdf />}></Route>
+                <Route exact={true} path="unit-converter" element={<UnitConverter />}></Route>
+                <Route exact={true} path="expense-tracker" element={<ExpenseTracker />}></Route>
+                <Route exact={true} path="resize-image" element={<ResizeImage />}></Route>
                 <Route exact={true} path="auth" element={<Authuser />}></Route>
+                <Route exact={true} path="word-to-pdf" element={<WordToPdf />}></Route>
+                <Route exact={true} path="video-to-glimpse" element={<VideoToGlimpse />}></Route>
                 <Route exact={true} path='*' element={<ErrorPage />}></Route>
             </Routes>
         </Router>

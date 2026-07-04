@@ -1,0 +1,255 @@
+/* ViewStyles.css */
+
+/* --- General Container & Typography --- */
+.view-container {
+    margin-top: 100px; /* Restored for global brand consistency */
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Premium Form Styles --- */
+.premium-input {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.premium-input:focus {
+    border-color: #4facfe; /* Modern Blue */
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+}
+
+.premium-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.premium-btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
+}
+
+.premium-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+    color: white;
+}
+
+.premium-btn-danger {
+    background: white;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+}
+
+.premium-btn-danger:hover {
+    background: #ff6b6b;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+/* --- List Item Cards --- */
+.list-card {
+    background: #fff;
+    border: none;
+    border-radius: 6px; 
+    margin-bottom: 2px; 
+    padding: 4px 10px; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Reduced hover shadow */
+}
+
+.list-text {
+    font-size: 0.85rem; 
+    color: #2d3436;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+.list-text.completed {
+    color: #b2bec3;
+    text-decoration: line-through;
+}
+
+/* --- Compact Action Buttons --- */
+.list-card .btn {
+    padding: 4px 10px; /* Compact padding */
+    font-size: 0.85rem; /* Compact font */
+    line-height: normal;
+}
+
+.list-card .btn span {
+    font-size: 0.85rem; 
+    vertical-align: middle;
+}
+
+.btn-compact-tool {
+    padding: 3px 10px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+/* --- Summary Section --- */
+.summary-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 10px 15px; /* Compact padding */
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.task-count {
+    font-weight: 600;
+    color: #636e72;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* --- Mobile Specific Overrides --- */
+@media (max-width: 767.98px) {
+    .view-container {
+        margin-top: 150px; /* Drastically increased to ensure clearance */
+        margin-bottom: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .responsive-form {
+        flex-direction: column;
+    }
+
+    .responsive-form .premium-btn {
+        width: 100%;
+        margin-top: 8px;
+        padding: 10px; /* Smaller mobile button */
+    }
+
+    .summary-bar {
+        flex-direction: column-reverse; /* Keep buttons easy to reach */
+        gap: 10px;
+        text-align: center;
+        padding: 12px;
+    }
+    
+    .summary-bar button {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .responsive-list-item {
+        flex-direction: row !important; /* Force row layout */
+        flex-wrap: nowrap !important; /* Prevent wrapping */
+        align-items: center !important;
+        justify-content: space-between;
+    }
+
+    .responsive-list-item .list-text {
+        margin-bottom: 0;
+        margin-right: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .action-btn-group {
+        width: auto; /* Shrink to fit content */
+        display: flex;
+        gap: 4px;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+    
+    .action-btn-group button {
+        flex: 0 0 auto;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+    }
+}
+
+/* Icon Button Styles */
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+/* --- High-Fidelity Word Rendering --- */
+.word-render-container {
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+
+.word-render-container .docx-wrapper {
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+.word-render-container .docx {
+    margin: 0 auto !important;
+    box-shadow: none !important;
+}
+
+/* --- Premium Footer --- */
+.site-footer {
+    background: #1a1a1a !important;
+    color: #999;
+}
+
+.site-footer h3, .site-footer h5, .site-footer h6 {
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.footer-links li a {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links li a:hover {
+    color: #007bff !important;
+    transform: translateX(5px);
+}
+
+.hover-primary:hover {
+    color: #007bff !important;
+}
+
+.bg-white-50 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}

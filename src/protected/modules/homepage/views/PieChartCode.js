@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
-import DocumentMeta from 'react-document-meta';
+import SEO from '../../../../components/SEO';
 import Header from './Header';
 import Footer from './Footer';
 import { useReactToPrint } from "react-to-print";
@@ -76,18 +76,14 @@ export default function PieChartCode() {
         documentTitle: `${heading.split(' ')[0]}_wlstore`,
         removeAfterPrint: true
     });
-    const meta = {
-        title: 'Pie Chart WebLaunch Store',
-        description: 'List your Bucket of Works. You can edit, complete, delete the list',
-        canonical: 'http://localhost:3000/piechart',
-        meta: {
-            name: {
-                keywords: 'ToDo, Bucket, Works, Tasks'
-            }
-        }
-    };
     return (
-        <DocumentMeta {...meta}>
+        <>
+            <SEO
+                title="Pie Chart Techtools Store"
+                description="List your Bucket of Works. You can edit, complete, delete the list"
+                canonical="https://techtools.gummadii.com/piechart"
+                keywords="ToDo, Bucket, Works, Tasks"
+            />
             <Header />
             <div className='container' style={{ marginTop: "100px" }}>
                 <div className="unit-5 text-center">
@@ -219,6 +215,6 @@ export default function PieChartCode() {
                 }
             </div>
             <Footer />
-        </DocumentMeta>
+        </>
     )
 }
